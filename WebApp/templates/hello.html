@@ -13,18 +13,19 @@
 </head>
 
 <body>
-    <script>
-        var codemirrorEditor = CodeMirror(document.body, {
+    <form method="post">
+        <textarea id="codearea" name="code">
+        </textarea>
+        <input type = "submit" value = "submit" />
+    </form>
+<script>
+        var codemirrorEditor = CodeMirror.fromTextArea(document.getElementById("codearea"), {
             lineNumbers: true,
             mode: "javascript",
             theme: "base16-dark",
             value: "Code in C:"
         });
     </script>
-    <form>
-        <textarea id="codearea">
-        </textarea>
-    </form>
 </body>
 
 </html>
