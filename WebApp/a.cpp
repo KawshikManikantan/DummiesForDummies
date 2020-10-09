@@ -1,10 +1,15 @@
-
 #include <iostream>
+#include <algorithm>
+#include<vector>
 using namespace std;
+int arr[100];
 int main()
 {
-    int a, b;
-    cin >> a >> b;
-    cout << "Hello World from C++.Values are:" << a << " " << b;
-    return 0;
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<*min_element(arr,arr+n)<<endl;
 }
