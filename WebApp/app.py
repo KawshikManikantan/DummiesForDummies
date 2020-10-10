@@ -19,9 +19,9 @@ def algo1():
         except:
            print("No Result obtained")
         finally:
-           return render_template('hello.html')
+           return render_template('editor.html')
     else:
-        return render_template('hello.html')
+        return render_template('editor.html')
 
 
 if __name__ == '__main__':
