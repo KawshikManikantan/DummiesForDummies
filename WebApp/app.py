@@ -4,8 +4,13 @@ import subprocess
 
 app = Flask(__name__)
 
+@app.route('/')
+@app.route('/home')
+def home():
+    return render_template('index.html')
 
-@app.route('/', methods=['GET', 'POST'])
+
+@app.route('/editor', methods=['GET', 'POST'])
 def algo1():
     __location__ = os.path.realpath(
         os.path.join(os.getcwd(), os.path.dirname(__file__)))
@@ -84,9 +89,9 @@ def algo1():
            print("No Result obtained")
            print(e.output)
         finally:
-           return render_template('hello.html')
+           return render_template('editor.html')
     else:
-        return render_template('hello.html')
+        return render_template('editor.html')
 
 
 if __name__ == '__main__':
