@@ -3,4 +3,28 @@
 {% endblock head %}
 
 {% block body %}
+    <div id="demo" class="carousel slide" data-ride="carousel" style="background-color: gray;">
+        <ol class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <h1 class="d-block w-100" style="text-align: center; font-size: 200px;">Image 1</h1>
+            </div>
+            <div class="carousel-item">
+                <h1 class="d-block w-100" style="text-align: center; font-size: 200px;">Image 2</h1>
+            </div>
+            <div class="carousel-item">
+                <h1 class="d-block w-100" style="text-align: center; font-size: 200px;">Image 3</h1>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
 {% endblock body %}
