@@ -1,8 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import os
 import subprocess
 
 app = Flask(__name__)
+
+
+def testhelp():
+    return render_template('editor.html')
+
 
 @app.route('/')
 @app.route('/home')
@@ -11,87 +16,120 @@ def home():
 
 
 @app.route('/editor', methods=['GET', 'POST'])
-def algo1():
-    __location__ = os.path.realpath(
-        os.path.join(os.getcwd(), os.path.dirname(__file__)))
-    output_display=[];
+def algo():
     if request.method == 'POST':
-        try:
-           user = request.form['code']
-           f = open(os.path.join(__location__, 'code1.cpp'), "w")
-           f.write(user)
-           f.close()
-
-           input_array = []
-           with open(os.path.join(__location__, 'test_cases.txt'), "r") as f:
-               for line in f:
-                   input_array.append(line)
-           f.close()
-
-           correct_sol = []
-           with open(os.path.join(__location__, 'cor_output.txt'), "r") as f:
-               for line in f:
-                   correct_sol.append(line.strip())
-           f.close()
-
-           submitted_sol = []
-
-           num_input = 2
-           i = 0
-
-           try:
-               s = subprocess.check_output("g++ code1.cpp -o out2",cwd=__location__,timeout=1);
-               print("Hey" + s.decode("utf-8"))
-           except:
-               # output_display.append(s.decode("utf-8"))
-
-               return
-
-           data, temp = os.pipe()
-           while i < len(input_array):
-               # print(input_array[i])
-               inputstr = ""
-               for j in range(num_input):
-                   inputstr = inputstr + input_array[i]
-                   i += 1
-               print(inputstr)
-               os.write(temp, bytes(inputstr, "utf-8"))
-               if i == len(input_array):
-                   os.close(temp)
-               s = subprocess.check_output("out2",cwd=__location__,
-                   stdin=data,timeout=1)
-               print(s.decode("utf-8"))
-               submitted_sol.append((s.decode("utf-8")).strip())
-           flag = 0
-           j = 0
-           # for i in submitted_sol:
-           #         print(i)
-           #
-           # for i in correct_sol:
-           #         print(i)
-           print(len(submitted_sol))
-           print(len(correct_sol))
-           if len(submitted_sol) != len(correct_sol):
-               print("Extra Characters Printed")
-           else:
-               while j < len(submitted_sol):
-                   if submitted_sol[j] != correct_sol[j]:
-                       # print(len(submitted_sol[j]), submitted_sol[j],
-                       #       len(correct_sol[j]), correct_sol[j])
-                       flag = 1
-                       break
-                   j += 1
-               if flag == 0:
-                   print("Congrats All testcases passed")
-               else:
-                   print("The testcase " + str(j) + " failed")
-        except subprocess.CalledProcessError as e:
-           print("No Result obtained")
-           print(e.output)
-        finally:
-           return render_template('editor.html')
+        return algo_init('code1.cpp', 'test_cases.txt', 'cor_output.txt',
+                         'out2', 2)
     else:
         return render_template('editor.html')
+
+
+def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
+              num_input):
+    __location__ = os.path.realpath(
+        os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    output_display = []
+    issuccess = 1
+    user = request.form['code']
+    try:
+        f = open(os.path.join(__location__, filetowritecode), "w")
+        f.write(user)
+        f.close()
+
+        input_array = []
+        with open(os.path.join(__location__, filetestcases), "r") as f:
+            for line in f:
+                input_array.append(line)
+        f.close()
+
+        correct_sol = []
+        with open(os.path.join(__location__, filetooutput), "r") as f:
+            for line in f:
+                correct_sol.append(line.strip())
+        f.close()
+
+        submitted_sol = []
+
+        # num_input = 2
+        i = 0
+
+    except:
+        issuccess = 0
+        print("Enters Except")
+        output_display.append("System Error: Please try again")
+        return render_template('editor.html', code=user,
+                               output=output_display)
+    else:
+        print(issuccess)
+        try:
+            command="g++ " + filetowritecode + " -o " + filetoexecute
+            print(command)
+            s = subprocess.check_output(command,
+                cwd=__location__, timeout=1,
+                stderr=subprocess.STDOUT)
+        except Exception as e:
+            print("Entered Here")
+            instr = e.output.decode()
+            for i in instr.split('\n'):
+                output_display.append(i)
+            if len(instr) != 0:
+                return render_template('editor.html', code=user,
+                                       output=output_display)
+        data, temp = os.pipe()
+        i=0
+        while i < len(input_array):
+            print(i)
+            inputstr = ""
+            for j in range(num_input):
+                inputstr = inputstr + input_array[i]
+                i += 1
+            print(inputstr)
+            os.write(temp, bytes(inputstr, "utf-8"))
+            if i == len(input_array):
+                os.close(temp)
+            try:
+                s = subprocess.check_output(filetoexecute,
+                                            cwd=__location__,
+                                            stdin=data, timeout=1,
+                                            stderr=subprocess.STDOUT)
+            except subprocess.TimeoutExpired as e:
+                print("No Result obtained")
+                print(e.output)
+                output_display.append("TimedOut/Segmentation Fault")
+                return render_template('editor.html', code=user,
+                                       output=output_display)
+            else:
+                print(s.decode("utf-8"))
+                submitted_sol.append((s.decode("utf-8")).strip())
+        flag = 0
+        j = 0
+        print(len(submitted_sol))
+        print(len(correct_sol))
+        if len(submitted_sol) != len(correct_sol):
+            print("Extra Characters Printed")
+        else:
+            while j < len(submitted_sol):
+                if submitted_sol[j] != correct_sol[j]:
+                    flag = 1
+                    break
+                j += 1
+            if flag == 0:
+                print("Congrats All testcases passed")
+                output_display.append("Congrats All testcases passed")
+
+            else:
+                print("The testcase " + str(j) + " failed")
+                output_display.append(
+                    "Congrats All testcases passed")
+        for result in output_display:
+            print(result)
+        return render_template('editor.html', code=user
+                               , output=output_display)
+
+
+@app.route('/test')
+def test():
+    return testhelp()
 
 
 if __name__ == '__main__':

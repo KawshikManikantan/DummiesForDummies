@@ -11,15 +11,20 @@
 {% block body %}
     <form method="post">
         <textarea id="codearea" name="code">
+            {{code}}
         </textarea>
         <input type = "submit" value = "Submit" class="btn btn-primary"/>
     </form>
+
+    {% for result in output%}
+      {{result}}
+        <br>
+    {% endfor %}
     <script>
         var codemirrorEditor = CodeMirror.fromTextArea(document.getElementById("codearea"), {
             lineNumbers: true,
             mode: "javascript",
-            theme: "base16-dark",
-            value: "Code in C:"
+            theme: "base16-dark"
         });
     </script>
 {% endblock body %}
