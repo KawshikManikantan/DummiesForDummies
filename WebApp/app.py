@@ -120,7 +120,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
             else:
                 print("The testcase " + str(j) + " failed")
                 output_display.append(
-                    "Congrats All testcases passed")
+                    "The testcase " + str(j) + " failed")
         for result in output_display:
             print(result)
         return render_template('editor.html', code=user
