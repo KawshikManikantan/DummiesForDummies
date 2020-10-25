@@ -1,24 +1,31 @@
 {% extends "layout.html" %}
 {% block head %}
-    <title>Editor</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/clike/clike.min.js" integrity="sha512-HT3t3u7HfQ7USbSZa0Tk5caEnUfO8s58OWqMBwm96xaZAbA17rpnXXHDefR8ixVmSSVssbOv3W3OMh6mNX/XuQ==" crossorigin="anonymous"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/javascript/javascript.js"></script> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
+<title>Editor</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/clike/clike.min.js"
+    integrity="sha512-HT3t3u7HfQ7USbSZa0Tk5caEnUfO8s58OWqMBwm96xaZAbA17rpnXXHDefR8ixVmSSVssbOv3W3OMh6mNX/XuQ=="
+    crossorigin="anonymous"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/javascript/javascript.js"></script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
 {% endblock head %}
 
 {% block body %}
+<div class="container-fluid">
     <form method="post">
         <textarea id="codearea" name="code">
             {{code}}
         </textarea>
-        <input type = "submit" value = "Submit" class="btn btn-primary"/>
+        <input type="submit" value="Submit" class="btn btn-primary" />
     </form>
 
     {% for result in output%}
-      {{result}}
-        <br>
+    {% if result=="Congrats All testcases passed" %}
+        <p class="alert alert-success" role="alert">{{result}}</p>
+    {% elif result!="" %}
+    <p class="alert alert-danger" role="alert">{{result}}</p>
+    {% endif %}
+    <br>
     {% endfor %}
     <script>
         var codemirrorEditor = CodeMirror.fromTextArea(document.getElementById("codearea"), {
@@ -27,4 +34,5 @@
             theme: "base16-dark"
         });
     </script>
+</div>
 {% endblock body %}

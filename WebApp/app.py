@@ -14,6 +14,10 @@ def testhelp():
 def home():
     return render_template('index.html')
 
+@app.route('/games')
+def game():
+    return render_template('games.html')
+
 
 @app.route('/editor', methods=['GET', 'POST'])
 def algo():
