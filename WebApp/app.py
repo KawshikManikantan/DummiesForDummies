@@ -18,6 +18,10 @@ def home():
 def game():
     return render_template('games.html')
 
+@app.route('/sort')
+def temp():
+    return render_template('sort.html')
+
 
 @app.route('/editor', methods=['GET', 'POST'])
 def algo():
