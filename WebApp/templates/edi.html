@@ -1,108 +1,190 @@
-<!<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Document</title>
-    <style>
-    body {
-  margin: 0;
-  font-family: 'Muli', sans-serif;
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Editor</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/clike/clike.min.js"
+    integrity="sha512-HT3t3u7HfQ7USbSZa0Tk5caEnUfO8s58OWqMBwm96xaZAbA17rpnXXHDefR8ixVmSSVssbOv3W3OMh6mNX/XuQ=="
+    crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/javascript/javascript.js"></script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='edi.css') }}">-->
+<script>
+$('#multiCollapseExample1').on('shown.bs.collapse', function () {
+    $('html, body').animate({
+       scrollTop: $("#benefits").offset().top
+    }, 1000);
+});
+</script>
+<style>
+.que{
+
 }
 
-.menu {
-  font-weight: 100;
-  background: #efefef;
-  width: 150px;
-  height: 100%;
-  padding-right: 50px;
-  position: fixed;
-  z-index: 100;
-  -webkit-box-shadow: -3px 0px 5px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: -3px 0px 5px 0px rgba(0, 0, 0, 0.2);
-  left: -130px;
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  color: #222;
+.row{
+    padding-left:0rem;
+    padding-right:0rem;
+    overflow:0px;
+    border-spacing:0px;
+    background-color:aliceblue;
 }
 
-.menu:hover, .menu:focus {
-  transform: translate3d(250px, 0, 0);
-  animation-timing-function: 1s ease-in;
+.body{
+
 }
 
-.menu .title {
-  top: 50%;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  transform: rotate(270deg);
-  right: 10px;
-  font-weight: 800;
-  font-size: 15px;
+.container-fluid{
+padding-left:0rem;
+padding-right:0rem;
+padding-top:0rem;
+padding-bottom:0rem;
+margin-left: 0px;
+margin-right: 0px;
+overflow: hidden;
 }
 
-.menu .nav {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  font-weight: 100;
+.but1{
+background-color:cornflowerblue;
 }
 
-.menu .nav li {
-  padding-bottom: 30px;
-  list-style-type: none;
+.but2{
+background-color:aquamarine;
 }
 
-.menu .nav li a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
+.but3{
+background-color:cornflowerblue;
 }
 
-.menu .nav li a:hover {
-  color: #aaa;
+.butgroup{
+margin:0px;
 }
-    </style>
-</head>
-<body>
-    <div class="menu">
-    <div class="title">MENU</div>
-    <ul class="nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Work</a></li>
-      <li><a href="#">Resources</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
+
+<!--.bb{-->
+<!--height:100%;-->
+<!--}-->
+.bt1 {
+  background-color: #D79922 !important;
+  border-color: #D79922 !important;
+}
+.bt1:hover,
+.bt1:active,
+.bt1:visited,
+.bt1:focus {
+  background-color: Brown !important;
+  border-color: Brown !important;
+}
+<!--.codesub{-->
+<!--size:100%-->
+<!--}-->
+.bt2 {
+  background-color: #4056A1 !important;
+  border-color: #4056A1 !important;
+}
+.bt2:hover,
+.bt2:active,
+.bt2:visited,
+.bt2:focus {
+  background-color: DarkBlue !important;
+  border-color: DarkBlue !important;
+}
+
+.bt3 {
+  background-color: #F13C20 !important;
+  border-color: #F13C20 !important;
+}
+.bt3:hover,
+.bt3:active,
+.bt3:visited,
+.bt3:focus {
+  background-color: DarkRed !important;
+  border-color: DarkRed !important;
+}
+
+<!--.CodeMirror-lines{-->
+<!--  height:100%;-->
+<!--  resize:vertical;-->
+<!--  overflow:auto !important;-->
+<!--&lt;!&ndash;  border: 1px solid #eee;&ndash;&gt;-->
+<!--&lt;!&ndash;  height: auto;&ndash;&gt;-->
+<!--}-->
+
+<!--.CodeMirror-scroll{-->
+<!--  height:100%;-->
+<!--  }-->
+</style>
+{% endblock head %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row no-gutters">
+      <div class="col-xl-6">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec dui nec libero interdum pulvinar nec a tortor. Cras vehicula semper ultrices. Sed venenatis felis sit amet leo sollicitudin, in suscipit magna condimentum. Nam condimentum hendrerit tortor condimentum lacinia. Donec quis eleifend risus. Duis at erat sem. Proin mattis aliquam pharetra. Maecenas scelerisque porttitor malesuada. Donec a elit accumsan, consectetur tellus id, aliquam urna. Nunc a risus ut nibh ornare venenatis. Donec sed venenatis eros. Etiam non sem a massa venenatis vulputate. In hac habitasse platea dictumst. Donec non lacus sem. Vivamus risus tortor, tempor a sollicitudin ut, mollis ut ex. Aliquam ut sollicitudin risus.
+
+Nulla elementum orci eget metus mattis bibendum. Aliquam quis nunc eget sapien dapibus scelerisque placerat eu orci. Aliquam turpis turpis, bibendum et vulputate eu, iaculis quis ante. Etiam imperdiet porttitor tellus ac lobortis. Proin congue sodales suscipit. Maecenas hendrerit turpis sit amet arcu pulvinar faucibus. Aenean vel nisi eu ipsum consectetur porta eu id dui. Integer non ipsum mi. Quisque aliquam magna sit amet finibus bibendum. Nulla eget nulla ex. Praesent efficitur massa eros, sed interdum purus ultrices in. Suspendisse potenti. Phasellus volutpat, odio vel lacinia eleifend, lectus justo molestie neque, ut laoreet diam diam et augue. Cras eu urna maximus, lobortis nibh sit amet, malesuada libero.
+
+Mauris gravida leo at nisl consectetur pretium. Vestibulum ullamcorper congue auctor. Aliquam erat volutpat. Quisque id posuere felis, eu fringilla risus. Interdum et malesuada fames ac ante ipsum primis in faucibus. In accumsan, felis porta aliquam porttitor, ex eros cursus arcu, id porttitor dolor nunc non ante. Pellentesque eget ultricies risus. Aliquam vestibulum, risus a feugiat aliquam, sem massa interdum ipsum, at viverra ligula felis a purus. Nunc eu convallis sem. Etiam aliquet non nibh ut vehicula
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec dui nec libero interdum pulvinar nec a tortor. Cras vehicula semper ultrices. Sed venenatis felis sit amet leo sollicitudin, in suscipit magna condimentum. Nam condimentum hendrerit tortor condimentum lacinia. Donec quis eleifend risus. Duis at erat sem. Proin mattis aliquam pharetra. Maecenas scelerisque porttitor malesuada. Donec a elit accumsan, consectetur tellus id, aliquam urna.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec dui nec libero interdum pulvinar nec a tortor. Cras vehicula semper ultrices. Sed venenatis felis sit amet leo sollicitudin, in suscipit magna condimentum. Nam condimentum hendrerit tortor condimentum lacinia. Donec quis eleifend risus. Duis at erat sem. Proin mattis aliquam pharetra. Maecenas scelerisque porttitor malesuada. Donec a elit accumsan, consectetur tellus id, aliquam urna.
+      </div>
+      <div class="col-xl-6 ">
+<!--          <div class="row">-->
+                  <form class="bb" method="post">
+<!--              <div class="col-xl-6 ">-->
+            <textarea id="codearea" name="code">
+                {{code}}
+            </textarea>
+<!--              </div>-->
+          <input type="submit" value="Submit" class="btn btn-block btn-info" />
+          </form>
+<!--              </div>-->
+          <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-height:300px;">
+              {% for result in output%}
+        {% if result=="Congrats All testcases passed" %}
+            <p class="alert alert-success" role="alert">{{result}}</p>
+        {% elif result!="" %}
+        <p class="alert alert-danger" role="alert">{{result}}</p>
+        {% endif %}
+        {% endfor %}
+          </div>
+      </div>
+
+      </div>
+      </div>
+      </div>
 </div>
-</body>
-</html>
+<!--<div class="container-fluid">-->
+    <div class="row no-gutters">
+    <a class="bt1 btn btn-primary col-xl-4" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" id="hi1">Hint 1</a>
+        <button class="bt2 btn btn-primary col-xl-4" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" id="hi2">Hint 2</button>
+      <button class="bt3 btn btn-primary col-xl-4" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2" id="hi3">Use All Hints</button>
+    </div>
+<!--</div>-->
 
+<div class="row no-gutters">
+  <div class="newc col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1" name="hint1">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2" name="hint2">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+  </div>
+</div>
 
+    <script>
+        var codemirrorEditor = CodeMirror.fromTextArea(document.getElementById("codearea"), {
+            lineNumbers: true,
+            mode: "javascript",
+            theme: "base16-dark",
+        });
+codemirrorEditor.setSize(null,"567px");
+</script>
 
-
-<!--    <form method="post">-->
-<!--        <textarea id="codearea" name="code">-->
-<!--            {{code}}-->
-<!--        </textarea>-->
-<!--        <input type = "submit" value = "Submit" class="btn btn-primary"/>-->
-<!--    </form>-->
-
-<!--    {% for result in output%}-->
-<!--      {{result}}-->
-<!--        <br>-->
-<!--    {% endfor %}-->
-<!--    <script>-->
-<!--        var codemirrorEditor = CodeMirror.fromTextArea(document.getElementById("codearea"), {-->
-<!--            lineNumbers: true,-->
-<!--            mode: "javascript",-->
-<!--            theme: "base16-dark"-->
-<!--        });-->
-<!--    </script>-->
-<!--{% endblock body %}-->
+{% endblock body %}

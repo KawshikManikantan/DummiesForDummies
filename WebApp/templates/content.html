@@ -1,0 +1,277 @@
+{% extends "layout1.html" %}
+
+{% block head %}
+<title>Introduction</title>
+<link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+<style>
+    .container-fluid {
+        padding: 0px;
+        padding-bottom:0px;
+        overflow: hidden;
+    }
+
+    .intro{
+    background-color:#3AAFA9;
+    }
+
+    .Welcome{
+        color:white;
+        font-family: 'Delius', cursive;
+        font-size: 40px;
+        text-align:center;
+    }
+
+    .text1{
+        color:#17252A;
+        font-family: 'Comic Neue', cursive;
+        font-size: 25px;
+    }
+
+     .text2{
+        color:#FFFFFF;
+        font-family: 'Comic Neue', cursive;
+        font-size: 25px;
+    }
+
+    .test {
+            position:static;
+            height:100px;
+            width:100px;
+            align:center;
+        }
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.hov:hover .overlay {
+  width: 100%;
+}
+
+.hov:hover .bor{
+    visibility:hidden;
+}
+
+<!--.hov:hover .test1{-->
+<!--    visibility:hidden;-->
+<!--}-->
+
+.text {
+  white-space: nowrap;
+  color: white;
+  position: absolute;
+  overflow: hidden;
+  font-family: 'Courgette', cursive;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.text{
+    font-size: 15px;
+}
+
+.card-img{
+   width: 200px!important;
+   height: 200px!important;
+<!--   object-fit: cover;-->
+}
+<!--img-->
+<!--{-->
+<!--&lt;!&ndash;    display:inline;&ndash;&gt;-->
+<!--&lt;!&ndash;    vertical-align:middle;&ndash;&gt;-->
+<!--    height:200px;-->
+<!--    width:200px;-->
+<!--}-->
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2B7A78;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.overlay1 {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  right: 0;
+  background-color: #2B7A78;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+
+.ppp{
+ background-color:red;
+}
+
+.row{
+height:100%;
+}
+
+.meet{
+background-color:#05386B;
+}
+
+.bor{
+border-width:20px;
+}
+
+.down{
+    width:66%;
+}
+
+.bb{
+background-color:#05386B;
+}
+
+.card-deck
+{
+    background-color:#05386B;
+
+
+<!--background-color:#A8D0E6-->
+}
+
+.my{
+    background-color:#05386B;
+}
+@media only screen and (min-width: 500px) {
+   .test{
+        height:200px;
+        width:200px;
+        border: 1px solid #ddd;
+    }
+
+    .test1{
+        height:200px;
+        width:200px;
+        border: 4px solid #ddd;
+<!--        align:middle;-->
+        align:center !important;
+    }
+
+    .text{
+        font-size: 20px;
+    }
+}
+
+</style>
+{% endblock head %}
+
+{% block body %}
+<div class=" row container-fluid no-gutters">
+<!--    <div class="row">-->
+    <div class=" intro col-xl-12" >
+    <p class="Welcome" ><b><i>Welcome to the Algo Laboratory</i></b></p>
+    <br>
+    <p class="text1">We at <b>Dummies For Dummies</b>, aim at making learning Algorithms fun and easy. Our three way approach helps us develop the concepts in a wholesome way.Click on the DForD button on the top of the screen to explore through the topics</p>
+    </div>
+    <div class=" hov intro col-xl-12" >
+        <div class="overlay">
+            <div class="text">A Game Based Approach to enhance the Conceptual Understanding of the Algorithms</div>
+        </div>
+        <div class="row no-gutters">
+        <div class=" bor col-xl-6 text-center">
+<!--            Gaming is Fun-->
+            <img class=" test img-fluid rounded-circle" src="{{ url_for('static', filename='game.jpg') }}" alt="Avatar" class="image">
+            <p class="text1">
+                Gaming is Fun!!!But Academics????
+            </p>
+        </div>
+        <div class=" bor col-xl-6 text-center">
+            <img class=" test img-fluid rounded-circle" src="{{ url_for('static', filename='learn.jpg') }}" alt="Avatar" class="image">
+        <p class="text1">
+            Knowledge Gaining is an arduous task
+        </p>
+        </div>
+        </div>
+    </div>
+    <div class=" hov intro col-xl-12 text-center" >
+        <div class="overlay">
+            <div class="text">Brain Tickling Problems to Apply your Algorithmic Knowledge...</div>
+        </div>
+            <img class=" test img-fluid rounded-circle" src="{{ url_for('static', filename='code.jpg') }}" alt="Avatar" class="image">
+            <p class="text1">
+            Finding it difficult to Code?
+        </p>
+    </div>
+    <div class="meet col-xl-12 text-center">
+        <br>
+        <p class="text2">Meet The Team Behind Dummies For Dummies</p>
+    </div>
+<!--    </div>-->
+</div>
+<div class="my container-fluid">
+<!--<div class="row mb-5">-->
+<div class="card-deck ml-2 mr-2">
+  <div class="card text-center">
+    <img class="card-img mx-auto" src="{{ url_for('static', filename='boy.png') }}" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Balaji Venkateshwarar</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img class="card-img mx-auto" src="{{ url_for('static', filename='boy.png') }}" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Balaji Venkateshwarar</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+  </div>
+
+    <div class="card text-center">
+    <img class="card-img mx-auto" src="{{ url_for('static', filename='boy.png') }}" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Balaji Venkateshwarar</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+    </div>
+
+</div>
+<!--<div class="down card-deck text-justify">-->
+
+<div class="card-deck mt-4 ml-2 mr-2">
+  <div class="card text-center">
+    <img class="card-img mx-auto" src="{{ url_for('static', filename='boy.png') }}" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Balaji Venkateshwarar</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+  </div>
+  <div class="card text-center">
+    <img class="card-img mx-auto" src="{{ url_for('static', filename='boy.png') }}" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Balaji Venkateshwarar</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+  </div>
+
+    <div class="card text-center">
+    <img class="card-img mx-auto" src="{{ url_for('static', filename='boy.png') }}" alt="Card image cap">
+    <div class="card-block">
+      <h4 class="card-title">Balaji Venkateshwarar</h4>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+<!--</div>-->
+{% endblock body %}

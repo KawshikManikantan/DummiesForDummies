@@ -1,6 +1,6 @@
-#include<iostream>
-using namespace std;
+                #include<iostream>
 int main()
 {
-	cout<<"Waste ga\n";
-}
+	int n=0;
+}
+            

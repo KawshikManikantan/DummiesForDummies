@@ -18,18 +18,25 @@ def home():
 def game():
     return render_template('games.html')
 
+@app.route('/intro')
+def intro():
+    return render_template('content.html')
+
 @app.route('/sort')
 def temp():
     return render_template('sort.html')
 
+# @app.route('/edi')
+# def editor():
+#     return render_template('edi.html')
 
-@app.route('/editor', methods=['GET', 'POST'])
+@app.route('/edi', methods=['GET', 'POST'])
 def algo():
     if request.method == 'POST':
         return algo_init('code1.cpp', 'test_cases.txt', 'cor_output.txt',
                          'out2', 2)
     else:
-        return render_template('editor.html')
+        return render_template('edi.html')
 
 
 def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
@@ -39,6 +46,10 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
     output_display = []
     issuccess = 1
     user = request.form['code']
+    # user=[]
+    # for ll in users:
+    #     if(ll.st):
+    #         user.appen
     try:
         f = open(os.path.join(__location__, filetowritecode), "w")
         f.write(user)
@@ -65,7 +76,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
         issuccess = 0
         print("Enters Except")
         output_display.append("System Error: Please try again")
-        return render_template('editor.html', code=user,
+        return render_template('edi.html', code=user,
                                output=output_display)
     else:
         print(issuccess)
@@ -81,7 +92,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
             for i in instr.split('\n'):
                 output_display.append(i)
             if len(instr) != 0:
-                return render_template('editor.html', code=user,
+                return render_template('edi.html', code=user,
                                        output=output_display)
         data, temp = os.pipe()
         i=0
@@ -104,7 +115,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
                 print("No Result obtained")
                 print(e.output)
                 output_display.append("TimedOut/Segmentation Fault")
-                return render_template('editor.html', code=user,
+                return render_template('edi.html', code=user,
                                        output=output_display)
             else:
                 print(s.decode("utf-8"))
@@ -131,7 +142,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
                     "The testcase " + str(j) + " failed")
         for result in output_display:
             print(result)
-        return render_template('editor.html', code=user
+        return render_template('edi.html', code=user
                                , output=output_display)
 
 
