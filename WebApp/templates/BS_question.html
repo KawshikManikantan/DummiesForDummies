@@ -1,0 +1,39 @@
+{%extends "questions_layout.html"%}
+{% block question %}
+    <h4>Array with Queries</h4>
+    <p>You are given an array A consisting of N positive numbers. You have to answer Q queries. Each query consists of an integer X, you have to print the length of smallest subarray of A starting from index 0 such that the sum of the numbers in the subarray is greater than or equal to X. If such subarray doesn't exist then print "-1"</p>
+    <h4>Constraints</h4>
+    <p> 1&le;N,Q&le;10<sup>6</sup></p>
+    <p> 1&le;A[i]&le;10<sup>9</sup></p>
+    <p> 1&le;X&le;10<sup>18</sup></p>
+    <h4>Input</h4>
+    <p>First line consists of 2 space seperated integers N and Q. The next line consists of N space seperated integers A[i]. The next Q lines contains the value of X where the i<sup>th</sup> line conatins value of X in i<sup>th</sup> query.</p>
+    <h4>Output</h4>
+    <p>Print a number in Q lines, i<sup>th</sup> line contains the length of subarray in i<sup>th</sup> query</p>
+    <h4>Sample Input</h4>
+    <div style="background-color: #CCCCCC;">
+    <pre>
+ 6 4
+ 1 3 2 4 5 2
+ 6
+ 9
+ 20
+ 16</pre>
+    </div>
+    <h4>Sample Output</h4>
+    <div style="background-color: #CCCCCC;">
+    <pre>
+ 3
+ 4
+ -1
+ 6</pre>
+    </div>
+    {% endblock question %}
+
+{% block hint1 %}
+    <p>This is Hint1</p>
+{% endblock hint1 %}
+
+{% block hint2 %}
+    <p>This is Hint2</p>
+{% endblock hint2 %}

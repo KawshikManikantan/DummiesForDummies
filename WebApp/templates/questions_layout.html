@@ -1,0 +1,177 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Editor</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/clike/clike.min.js"
+    integrity="sha512-HT3t3u7HfQ7USbSZa0Tk5caEnUfO8s58OWqMBwm96xaZAbA17rpnXXHDefR8ixVmSSVssbOv3W3OMh6mNX/XuQ=="
+    crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/javascript/javascript.js"></script> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/theme/base16-dark.css">
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='edi.css') }}">-->
+<script>
+$('#multiCollapseExample1').on('shown.bs.collapse', function () {
+    $('html, body').animate({
+       scrollTop: $("#benefits").offset().top
+    }, 1000);
+});
+</script>
+<style>
+.que{
+
+}
+
+.row{
+    padding-left:0rem;
+    padding-right:0rem;
+    overflow:0px;
+    border-spacing:0px;
+    background-color:aliceblue;
+}
+
+.body{
+
+}
+
+.container-fluid{
+padding-left:0rem;
+padding-right:0rem;
+padding-top:0rem;
+padding-bottom:0rem;
+margin-left: 0px;
+margin-right: 0px;
+overflow: hidden;
+}
+
+.but1{
+background-color:cornflowerblue;
+}
+
+.but2{
+background-color:aquamarine;
+}
+
+.but3{
+background-color:cornflowerblue;
+}
+
+.butgroup{
+margin:0px;
+}
+
+<!--.bb{-->
+<!--height:100%;-->
+<!--}-->
+.bt1 {
+  background-color: #D79922 !important;
+  border-color: #D79922 !important;
+}
+.bt1:hover,
+.bt1:active,
+.bt1:visited,
+.bt1:focus {
+  background-color: Brown !important;
+  border-color: Brown !important;
+}
+<!--.codesub{-->
+<!--size:100%-->
+<!--}-->
+.bt2 {
+  background-color: #4056A1 !important;
+  border-color: #4056A1 !important;
+}
+.bt2:hover,
+.bt2:active,
+.bt2:visited,
+.bt2:focus {
+  background-color: DarkBlue !important;
+  border-color: DarkBlue !important;
+}
+
+.bt3 {
+  background-color: #F13C20 !important;
+  border-color: #F13C20 !important;
+}
+.bt3:hover,
+.bt3:active,
+.bt3:visited,
+.bt3:focus {
+  background-color: DarkRed !important;
+  border-color: DarkRed !important;
+}
+
+<!--.CodeMirror-lines{-->
+<!--  height:100%;-->
+<!--  resize:vertical;-->
+<!--  overflow:auto !important;-->
+<!--&lt;!&ndash;  border: 1px solid #eee;&ndash;&gt;-->
+<!--&lt;!&ndash;  height: auto;&ndash;&gt;-->
+<!--}-->
+
+<!--.CodeMirror-scroll{-->
+<!--  height:100%;-->
+<!--  }-->
+body{
+    background-color: #DDDDDD;
+}
+.container{
+    background-color: #ffffff;
+}
+</style>
+{% endblock head %}
+{% block body %}
+<div class="container">
+      {% block question %}
+      {% endblock question %}
+    <div class="row no-gutters">
+    <a class="bt1 btn btn-primary col-xl-4" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" id="hi1">Hint 1</a>
+        <button class="bt2 btn btn-primary col-xl-4" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" id="hi2">Hint 2</button>
+      <button class="bt3 btn btn-primary col-xl-4" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2" id="hi3">Use All Hints</button>
+    </div>
+
+<div class="row no-gutters">
+  <div class="newc col">
+    <div class="collapse multi-collapse" id="multiCollapseExample1" name="hint1">
+      <div class="card card-body">
+        {% block hint1 %}
+        {% endblock hint1 %}
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="collapse multi-collapse" id="multiCollapseExample2" name="hint2">
+      <div class="card card-body">
+        {% block hint2 %}
+        {% endblock hint2 %}
+      </div>
+    </div>
+  </div>
+</div>
+    <form class="bb" method="post">
+        <textarea id="codearea" name="code">
+            {{code}}
+        </textarea>
+        <input type="submit" value="Submit" class="btn btn-block btn-info" />
+    </form>
+    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-height:300px;">
+        {% for result in output%}
+            {% if result=="Congrats All testcases passed" %}
+                <p class="alert alert-success" role="alert">{{result}}</p>
+            {% elif result!="" %}
+            <p class="alert alert-danger" role="alert">{{result}}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+    <script>
+        var codemirrorEditor = CodeMirror.fromTextArea(document.getElementById("codearea"), {
+            lineNumbers: true,
+            mode: "javascript",
+            theme: "base16-dark",
+        });
+codemirrorEditor.setSize(null,"567px");
+</script>
+
+{% endblock body %}

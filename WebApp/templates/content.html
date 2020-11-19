@@ -84,7 +84,8 @@
 .card-img{
    width: 200px!important;
    height: 200px!important;
-<!--   object-fit: cover;-->
+}
+/* <!--   object-fit: cover;-->
 }
 <!--img-->
 <!--{-->
@@ -92,7 +93,7 @@
 <!--&lt;!&ndash;    vertical-align:middle;&ndash;&gt;-->
 <!--    height:200px;-->
 <!--    width:200px;-->
-<!--}-->
+<!--}--> */
 .overlay {
   position: absolute;
   bottom: 0;
@@ -144,9 +145,7 @@ background-color:#05386B;
 .card-deck
 {
     background-color:#05386B;
-
-
-<!--background-color:#A8D0E6-->
+    /*background-color:#A8D0E6*/
 }
 
 .my{
@@ -163,7 +162,7 @@ background-color:#05386B;
         height:200px;
         width:200px;
         border: 4px solid #ddd;
-<!--        align:middle;-->
+/* <!--        align:middle;--> */
         align:center !important;
     }
 
@@ -274,4 +273,8 @@ background-color:#05386B;
 </div>
 </div>
 <!--</div>-->
+<script type="text/javascript">
+    var element = document.getElementById('resources');
+    element.classList.add('active');
+</script>
 {% endblock body %}

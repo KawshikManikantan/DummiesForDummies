@@ -30,13 +30,17 @@ def temp():
 # def editor():
 #     return render_template('edi.html')
 
-@app.route('/edi', methods=['GET', 'POST'])
-def algo():
+
+@app.route('/edi/<id>', methods=['GET', 'POST'])
+def algo(id):
     if request.method == 'POST':
         return algo_init('code1.cpp', 'test_cases.txt', 'cor_output.txt',
                          'out2', 2)
     else:
-        return render_template('edi.html')
+        if id == "0":
+            return render_template('edi.html')
+        else:
+            return render_template("BS_question.html")
 
 
 def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
