@@ -22,13 +22,16 @@ def game():
 def intro():
     return render_template('content.html')
 
-@app.route('/sort')
-def temp():
-    return render_template('sort.html')
-
-# @app.route('/edi')
-# def editor():
-#     return render_template('edi.html')
+@app.route('/game/<id>')
+def gamesTab(id):
+    print(id)
+    if id == "1":
+        return render_template("BS_game.html")
+    elif id == "2":
+        print("Hey")
+        return render_template("BST_game.html")
+    else:
+        return render_template("games_layout.html")
 
 
 @app.route('/edi/<id>', methods=['GET', 'POST'])
@@ -37,10 +40,10 @@ def algo(id):
         return algo_init('code1.cpp', 'test_cases.txt', 'cor_output.txt',
                          'out2', 2)
     else:
-        if id == "0":
-            return render_template('edi.html')
-        else:
+        if id == "1":
             return render_template("BS_question.html")
+        else:
+            return render_template('questions_layout.html')
 
 
 def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,

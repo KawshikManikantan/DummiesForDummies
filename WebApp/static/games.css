@@ -1,0 +1,9 @@
+body{
+    background-color: #dddddd;
+}
+.container{
+    background-color: #ffffff;
+}
+.game_frame{
+    border: 1px solid black;
+}

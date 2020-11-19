@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='games.css') }}">
+{% endblock head %}
+{% block body %}
+    <div class="container">
+        <div class="game_frame embed-responsive embed-responsive-16by9">
+            {% block frame %}
+            {% endblock frame %}
+        </div>
+        <h5>Instructions:</h5>
+        {% block instr %}
+        {% endblock instr %}
+    </div>
+
+{% endblock body %}
