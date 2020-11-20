@@ -3,10 +3,13 @@ import os
 import subprocess
 
 app = Flask(__name__)
-
+filenames = ["SS_question.html", "BS_question.html", "BST_question.html"]
 
 def testhelp():
-    return render_template('editor.html')
+    if id == "1":
+        return render_template('BS_question.html')
+    elif id == "2":
+        return render_template("BST_question.html")
 
 
 @app.route('/')
@@ -14,21 +17,27 @@ def testhelp():
 def home():
     return render_template('index.html')
 
+
 @app.route('/games')
 def game():
     return render_template('games.html')
+
+
+@app.route("/coding")
+def coding():
+    return render_template("coding.html")
+
 
 @app.route('/intro')
 def intro():
     return render_template('content.html')
 
+
 @app.route('/game/<id>')
 def gamesTab(id):
-    print(id)
     if id == "1":
         return render_template("BS_game.html")
     elif id == "2":
-        print("Hey")
         return render_template("BST_game.html")
     else:
         return render_template("games_layout.html")
@@ -38,16 +47,18 @@ def gamesTab(id):
 def algo(id):
     if request.method == 'POST':
         return algo_init('code1.cpp', 'test_cases.txt', 'cor_output.txt',
-                         'out2', 2)
+                         'out2', 2, int(id))
     else:
         if id == "1":
             return render_template("BS_question.html")
+        elif id == "2":
+            return render_template('BST_question.html')
         else:
-            return render_template('questions_layout.html')
+            return render_template("questions_layout.html")
 
 
 def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
-              num_input):
+              num_input, id):
     __location__ = os.path.realpath(
         os.path.join(os.getcwd(), os.path.dirname(__file__)))
     output_display = []
@@ -83,7 +94,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
         issuccess = 0
         print("Enters Except")
         output_display.append("System Error: Please try again")
-        return render_template('edi.html', code=user,
+        return render_template(filenames[id], code=user,
                                output=output_display)
     else:
         print(issuccess)
@@ -99,7 +110,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
             for i in instr.split('\n'):
                 output_display.append(i)
             if len(instr) != 0:
-                return render_template('edi.html', code=user,
+                return render_template(filenames[id], code=user,
                                        output=output_display)
         data, temp = os.pipe()
         i=0
@@ -122,7 +133,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
                 print("No Result obtained")
                 print(e.output)
                 output_display.append("TimedOut/Segmentation Fault")
-                return render_template('edi.html', code=user,
+                return render_template(filenames[id], code=user,
                                        output=output_display)
             else:
                 print(s.decode("utf-8"))
@@ -149,13 +160,13 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
                     "The testcase " + str(j) + " failed")
         for result in output_display:
             print(result)
-        return render_template('edi.html', code=user
+        return render_template(filenames[id], code=user
                                , output=output_display)
 
 
 @app.route('/test')
-def test():
-    return testhelp()
+def test(id):
+    return testhelp(id)
 
 
 if __name__ == '__main__':

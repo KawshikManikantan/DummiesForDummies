@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% block head %}
+<link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Dekko' rel='stylesheet'>
+<style>
+body {
+background-color: #0B0C10;
+}
+
+.card{
+    color: #66FCF1;
+    background-color: #1F2833;
+    font-family: 'Acme';
+    font-size: 20px;
+    border-color: #45A29E;
+}
+
+.card-text{
+    color: white;
+    font-size: 15px;
+    font-family: 'Arial';
+}
+</style>
+{% endblock head %}
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row my-3 mx-3">
+        <div class="col-md">
+            <div class="card mx-2 my-2">
+<!--                <img src="#" alt="img" class="card-image-top">-->
+                <div class="card-body">
+                    <h4 class="card-title">Selection Sort</h4>
+                    <p class="card-text">The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning. Try to code a question about the application of this algorithm</p>
+                    <a href="{{ url_for('algo', id=0) }}" class="btn btn-primary">Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card mx-2 my-2">
+<!--                <img src="#" alt="img" class="card-image-top">-->
+                <div class="card-body">
+                    <h4 class="card-title">Binary Search</h4>
+                    <p class="card-text">Binary search algorithm is used to find data when the data is sorted in some fashion. It is much better than sequential search in terms of time complexity. Try to code a question about the application of this algorithm.</p>
+                    <a href="{{ url_for('algo', id=1) }}" class="btn btn-primary">Code</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card mx-2 my-2">
+<!--                <img src="#" alt="img" class="card-image-top">-->
+                <div class="card-body">
+                   <h4 class="card-title">Binary Search Tree(BST)</h4>
+                    <p class="card-text">Binary Search Tree is a data structure in which the left subtree of a node has all nodes less than itself and the right subtree has nodes which are greater than the given node. Try to code about an application of this data structure.</p>
+                    <a href="{{ url_for('algo', id=2) }}" class="btn btn-primary">Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var element = document.getElementById('coding');
+    element.classList.add("active");
+</script>
+{% endblock body %}

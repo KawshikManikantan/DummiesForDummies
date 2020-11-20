@@ -1,0 +1,27 @@
+{% extends "questions_layout.html" %}
+{% block question %}
+    <h4>Binary Search Tree</h4>
+    <p>Try to implement insert function for BST and print the pre-order traversal of the created BST. You are given an integer N denoting the number of numbers you are going to insert.</p>
+    <h4>Constraints</h4>
+    <p>1&le;N&le;10<sup>5</sup></p>
+    <p>1&le;X<sub>i</sub>&le;10<sup>6</sup> where X<sub>i</sub> denotes the i<sup>th</sup> number inserted.</p>
+    <p>It is guaranteed that X<sub>i</sub>&ne;X<sub>j</sub> for i&ne;j</p>
+    <h4>Input</h4>
+    <p>First line of input contains N, the number of elements going to be inserted. The next line contains N space seperated integers where i<sup>th</sup> number denotes X<sub>i</sub></p>
+    <h4>Output</h4>
+    <p>Print N space seperated integers, the pre-order traversal of the BST.</p>
+    <h4>Sample inputs</h4>
+    <div style="background-color: #CCCCCC;">
+        <pre>
+3
+2 3 1
+
+4
+2 3 4 1</pre>
+    </div>
+    <div style="background-color: #CCCCCC;">
+        <pre>
+2 1 3
+2 1 3 4</pre>
+    </div>
+{% endblock question %}
