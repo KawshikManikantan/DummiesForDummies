@@ -58,6 +58,23 @@ def gamesTab(id):
     else:
         return render_template("games_layout.html")
 
+@app.route('/content/<idd>')
+def contentTab(idd):
+    if idd == "1":
+        return render_template("BS_content.html")
+    elif idd == "2":
+        return render_template("BST_content.html")
+    elif idd == "3":
+        return render_template("BFS_content.html")
+    elif idd == "4":
+        return render_template("DFS_content.html")
+    elif idd == "5":
+        # print("Eh?")
+        return render_template("KRU_content.html")
+    elif idd == "0":
+        return render_template("SOR_content.html")
+    else:
+        return render_template("games_layout.html")
 
 @app.route('/edi/<id>', methods=['GET', 'POST'])
 def algo(id):

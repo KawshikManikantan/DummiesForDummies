@@ -1,0 +1,56 @@
+{% extends "layout_slides.html" %}
+{% block head %}
+<style>
+   body{
+        background-color:#dddddd
+    }
+
+    h3{
+    color:red;
+    }
+</style>
+{% endblock head %}
+
+{% block body %}
+<div class="container-fluid">
+<!--        <div class="container-fluid">-->
+              {% block slide %}
+                        <embed class="slides" type="text/html" src="{{ url_for('static', filename='slides-kruskal.html') }}">
+                {% endblock slide %}
+<!--        </div>-->
+        <div class="resources container-fluid">
+            <p class="headings"><h3>Useful Resources:</h3></p>
+        <ul>
+                <li>
+                        https://www.geeksforgeeks.org/
+                </li>
+
+                <li>
+                        https://www.geeksforgeeks.org/
+                </li>
+
+                <li>
+                        https://www.geeksforgeeks.org/
+                </li>
+
+        </ul>
+                </div>
+</div>
+
+ <div class="container-fluid">
+  <div class="row">
+          <div class="col-xl-12" >
+             <p class="headings"><h3>Useful Resources:</h3></p>
+    </div>
+<!--          <p class="headings"><h3>Useful Resources:</h3></p>-->
+    <div class="col-xl-6" >
+      <iframe width="350" height="250" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+      </iframe>
+    </div>
+    <div class="col-xl-6">
+      <iframe width="350" height="250" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+      </iframe>
+    </div>
+  </div>
+</div>
+{% endblock body %}
