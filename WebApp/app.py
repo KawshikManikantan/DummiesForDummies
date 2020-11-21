@@ -41,6 +41,8 @@ def gamesTab(id):
         return render_template("BS_game.html")
     elif id == "2":
         return render_template("BST_game.html")
+    elif id== "5":
+        return render_template("KRU_game.html")
     else:
         return render_template("games_layout.html")
 
