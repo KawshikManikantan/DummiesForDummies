@@ -3,13 +3,15 @@ import os
 import subprocess
 
 app = Flask(__name__)
-filenames = ["SS_question.html", "BS_question.html", "BST_question.html"]
+filenames = ("SS_question.html", "BS_question.html", "BST_question.html", "BFS_question.html")
 
 def testhelp():
     if id == "1":
         return render_template('BS_question.html')
     elif id == "2":
         return render_template("BST_question.html")
+    elif id == "3":
+        return render_template("BFS_question.html")
 
 
 @app.route('/')
@@ -52,7 +54,9 @@ def algo(id):
         if id == "1":
             return render_template("BS_question.html")
         elif id == "2":
-            return render_template('BST_question.html')
+            return render_template("BST_question.html")
+        elif id == "3":
+            return render_template("BFS_question.html")
         else:
             return render_template("questions_layout.html")
 
@@ -105,7 +109,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
                 cwd=__location__, timeout=1,
                 stderr=subprocess.STDOUT)
         except Exception as e:
-            print("Entered Here")
+            print("Entered Here 1")
             instr = e.output.decode()
             for i in instr.split('\n'):
                 output_display.append(i)
