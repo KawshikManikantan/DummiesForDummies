@@ -123,9 +123,11 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
         while i < len(input_array):
             print(i)
             inputstr = ""
-            for j in range(num_input):
+            # for j in range(num_input):
+            while i<len(input_array) and input_array[i]!="\n" and len(input_array) > 0:
                 inputstr = inputstr + input_array[i]
                 i += 1
+            i+=1
             print(inputstr)
             os.write(temp, bytes(inputstr, "utf-8"))
             if i == len(input_array):
