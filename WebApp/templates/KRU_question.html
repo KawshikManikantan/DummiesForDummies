@@ -1,0 +1,55 @@
+{%extends "questions_layout.html"%}
+{% block question %}
+    <h4>Bakery Hunt</h4>
+    <p>It is Christmas, next week at Wonderland and Peter’s mom wants to buy two huge cakes for the party at their home. Since people like varieties, Peter’s mom decides to buy the cakes from two different bakeries in their town. Now there are N bakeries in the town with M bi-directional roads connecting them.</p>
+    <p>Now Peter and his brother Joe have to visit all the bakeries independently in order to find the best ones. Unfortunately, they don’t get along so well, and decide to take two different paths to all the bakeries. And since, no one likes to actually travel for a lot of time, they have decided to find the two least-time paths that cost. Note that two different paths mean that two paths have at least a road different.</p>
+    <p>Suppose they cannot find two such paths or even a single such path, they start fighting and their mother has to bake her own cakes and that costs a time of 10^9 + 7. Now print the sum of time of travel of the brother or 10^9 + 7 if they fight.</p>
+<!--    <br>-->
+<!--    <p>So as usual he goes to his friend Harold Finch, the guy who broke the internet, to plan his trip so that he would be able to succeed in his dream. However since Harold was very busy at that moment, he has asked his most brilliant student, you, to solve it for him. </p>-->
+<!--    <br>-->
+<!--    <p>Reese has a map of the POIWorld and you find that all places in POIWorld are nodes of a huge tree. Since, it is a single trip, you cannot visit any nodes twice and ofcourse all nodes are not necessarily connected to every other node with an edge. Thankfully, since POIWorld is a well planned world, all the cities are accessible from every other city i.e it is all a single component.</p>-->
+<!--    <br>-->
+<!--    <p>Help Mr Reese determine the largest number of cities that can be visited by him. </p>-->
+    <h4>Constraints</h4>
+    <p> 1&le;N,M&le;10<sup>3</sup></p>
+    <p> 1&le;Weight Of Edge&le;10<sup>3</sup></p>
+    <h4>Input</h4>
+    <p>First line consists of two integers N and M denoting the number of bakeries and the number of roads. The next Q lines consists of 3 integers, denoting the vertices of a un-directed edge and the corresponding edge weight.</p>
+    <h4>Output</h4>
+    <p>Print a single integer denoting the total time</p>
+    <h4>Sample Input</h4>
+    <div style="background-color: #CCCCCC;">
+    <pre>
+ 3 3
+ 0 1 1
+ 0 2 1
+ 2 1 1  </pre>
+    <pre>
+ 3 6
+ 0 1 1
+ 0 3 1
+ 0 2 1
+ 2 1 1
+ 1 3 1
+ 2 3 1
+
+    </pre>
+
+    </div>
+    <h4>Sample Output</h4>
+    <div style="background-color: #CCCCCC;">
+    <pre>
+ 100000007
+ 6
+    </pre>
+
+    </div>
+    {% endblock question %}
+
+{% block hint1 %}
+    <p>The problem involves finding out the first and second MST.</p>
+{% endblock hint1 %}
+
+{% block hint2 %}
+    <p>Try replacing every edge in the MST.</p>
+{% endblock hint2 %}

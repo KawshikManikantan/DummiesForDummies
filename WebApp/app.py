@@ -12,6 +12,12 @@ def testhelp():
         return render_template("BST_question.html")
     elif id == "3":
         return render_template("BFS_question.html")
+    elif id == "4":
+        return render_template("DFS_question.html")
+    elif id== "5":
+        return render_template("KRU_question.html")
+    elif id== "0":
+        return render_template("SOR_question.html")
 
 
 @app.route('/')
@@ -45,9 +51,9 @@ def gamesTab(id):
         return render_template("BFS_game.html")
     elif id == "4":
         return render_template("DFS_game.html")
-    elif id== "5":
+    elif id == "5":
         return render_template("KRU_game.html")
-    elif id== "6":
+    elif id == "0":
         return render_template("SOR_game.html")
     else:
         return render_template("games_layout.html")
@@ -66,11 +72,11 @@ def algo(id):
         elif id == "3":
             return render_template("BFS_question.html")
         elif id == "4":
-            return render_template("DFS_game.html")
+            return render_template("DFS_question.html")
         elif id == "5":
-            return render_template("KRU_game.html")
-        elif id == "6":
-            return render_template("SOR_game.html")
+            return render_template("KRU_question.html")
+        elif id == "0":
+            return render_template("SOR_question.html")
         else:
             return render_template("questions_layout.html")
 
