@@ -10,12 +10,82 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="/static/navbar.css">
         <title>Front Page</title>
-        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">
+<!--        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css">-->
     </head>
+    <style>
+        @import
+    url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+*
+{
+    box-sizing: border-box;
+}
+body
+{
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+/*header css */
+header
+{
+    position: absolute;
+    margin-top: 1em;
+    left: 0;
+    right: 0;
+}
+nav ul
+{
+    margin : 0;
+    padding : 0;
+    list-style: none;
+    border-style: 2px solid white;
+}
+
+nav li
+{
+    display: inline-block;
+    margin: 1em;
+}
+nav a, section a
+{
+    font-weight: 900;
+    text-decoration: none!important;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    padding: 0.5em;
+    color: #FFF;
+    border: 2px solid white;
+}
+nav a:hover,
+nav a:focus
+{
+    color: #DDD;
+}
+/*home*/
+section a:hover,
+section a:focus
+{
+    color: #DDD;
+}
+
+.home
+{
+    font-weight: 700;
+<!--    background-image: url('Background.png');-->
+    padding-top: 36em;
+    padding-bottom: 10em;
+    color: #FFF;
+}
+
+.d-block{
+    height:88vh;
+}
+    </style>
     <body>
-    
+
         <header>
-            <img src="{{ url_for('static', filename='logo_1.png') }}" alt="Project logo" class = "logo">
+<!--            <img src="{{ url_for('static', filename='logo_1.png') }}" alt="Project logo" class = "logo">-->
             <nav>
                 <ul>
                 <li><a href = "{{ url_for('home') }}">HOME</a></li>
@@ -30,90 +100,128 @@
     <p><h1> The ultimate learning experience </h1></p>
         <br>
     </section>
-    <div>
-      <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
-        <!--Indicators-->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-2" data-slide-to="1"></li>
-          <li data-target="#carousel-example-2" data-slide-to="2"></li>
-          <li data-target="#carousel-example-2" data-slide-to="3"></li>
-        </ol>
-        <!--/.Indicators-->
-        <!--Slides-->
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active">
-            <div class="view">
-              <img class="d-block w-100" src="{{ url_for('static', filename='DFS_img.jpeg') }}"
-                alt="First slide">
-              <div class="mask rgba-black-dark"></div>
-            </div>
-            <div class="carousel-caption">
-              <h3 class="h3-responsive">Dark mask</h3>
-              <p>First text</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view">
-              <img class="d-block w-100" src="{{ url_for('static', filename='BFS_img.jpeg') }}"
-                alt="Second slide">
-              <div class="mask rgba-black-strong"></div>
-            </div>
-            <div class="carousel-caption">
-              <h3 class="h3-responsive">Strong mask</h3>
-              <p>Secondary text</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view">
-              <img class="d-block w-100" src="{{ url_for('static', filename='game.jpg') }}"
-                alt="Third slide">
-              <div class="mask rgba-black-slight"></div>
-            </div>
-            <div class="carousel-caption">
-              <h3 class="h3-responsive">Slight mask</h3>
-              <p>Third text</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <!--Mask color-->
-            <div class="view">
-              <img class="d-block w-100" src="{{ url_for('static', filename='Coding.png') }}"
-                alt="Second slide">
-              <div class="mask rgba-black-strong"></div>
-            </div>
-            <div class="carousel-caption">
-              <h3 class="h3-responsive">Strong mask</h3>
-              <p>Secondary text</p>
-            </div>
-          </div>
-        </div>
-        <!--/.Slides-->
-        <!--Controls-->
-        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-        <!--/.Controls-->
+        hHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHKLLLLLLLLLLLLLLLLLDSSDSDSDSDSDSDSDSDSDSDSDSDSDSDSD
+<div class="container">
+  <h2>Carousel Example</h2>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="la.jpg" alt="Los Angeles" style="width:100%;">
       </div>
-            <!--/.Slides-->
-            <!--Controls-->
-            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-            <!--/.Controls-->
-          </div>
-        </div>
+
+      <div class="item">
+        <img src="chicago.jpg" alt="Chicago" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="ny.jpg" alt="New york" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<!--    <div>-->
+<!--      <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">-->
+<!--        &lt;!&ndash;Indicators&ndash;&gt;-->
+<!--        <ol class="carousel-indicators">-->
+<!--          <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>-->
+<!--          <li data-target="#carousel-example-2" data-slide-to="1"></li>-->
+<!--          <li data-target="#carousel-example-2" data-slide-to="2"></li>-->
+<!--          <li data-target="#carousel-example-2" data-slide-to="3"></li>-->
+<!--        </ol>-->
+<!--        &lt;!&ndash;/.Indicators&ndash;&gt;-->
+<!--        &lt;!&ndash;Slides&ndash;&gt;-->
+<!--        <div class="carousel-inner" role="listbox">-->
+<!--          <div class="carousel-item active">-->
+<!--            <div class="view">-->
+<!--              <img class="d-block w-100" src="{{ url_for('static', filename='DFS_img.jpeg') }}"-->
+<!--                alt="First slide">-->
+<!--              <div class="mask rgba-black-dark"></div>-->
+<!--            </div>-->
+<!--            <div class="carousel-caption">-->
+<!--              <h3 class="h3-responsive">Dark mask</h3>-->
+<!--              <p>First text</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="carousel-item">-->
+<!--            &lt;!&ndash;Mask color&ndash;&gt;-->
+<!--            <div class="view">-->
+<!--              <img class="d-block w-100" src="{{ url_for('static', filename='BFS_img.jpeg') }}"-->
+<!--                alt="Second slide">-->
+<!--              <div class="mask rgba-black-strong"></div>-->
+<!--            </div>-->
+<!--            <div class="carousel-caption">-->
+<!--              <h3 class="h3-responsive">Strong mask</h3>-->
+<!--              <p>Secondary text</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="carousel-item">-->
+<!--            &lt;!&ndash;Mask color&ndash;&gt;-->
+<!--            <div class="view">-->
+<!--              <img class="d-block w-100" src="{{ url_for('static', filename='game.jpg') }}"-->
+<!--                alt="Third slide">-->
+<!--              <div class="mask rgba-black-slight"></div>-->
+<!--            </div>-->
+<!--            <div class="carousel-caption">-->
+<!--              <h3 class="h3-responsive">Slight mask</h3>-->
+<!--              <p>Third text</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="carousel-item">-->
+<!--            &lt;!&ndash;Mask color&ndash;&gt;-->
+<!--            <div class="view">-->
+<!--              <img class="d-block w-100" src="{{ url_for('static', filename='Coding.png') }}"-->
+<!--                alt="Second slide">-->
+<!--              <div class="mask rgba-black-strong"></div>-->
+<!--            </div>-->
+<!--            <div class="carousel-caption">-->
+<!--              <h3 class="h3-responsive">Strong mask</h3>-->
+<!--              <p>Secondary text</p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash;/.Slides&ndash;&gt;-->
+<!--        &lt;!&ndash;Controls&ndash;&gt;-->
+<!--        <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">-->
+<!--          <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--          <span class="sr-only">Previous</span>-->
+<!--        </a>-->
+<!--        <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">-->
+<!--          <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--          <span class="sr-only">Next</span>-->
+<!--        </a>-->
+<!--        &lt;!&ndash;/.Controls&ndash;&gt;-->
+<!--      </div>-->
+<!--            &lt;!&ndash;/.Slides&ndash;&gt;-->
+<!--            &lt;!&ndash;Controls&ndash;&gt;-->
+<!--            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">-->
+<!--              <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+<!--              <span class="sr-only">Previous</span>-->
+<!--            </a>-->
+<!--            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">-->
+<!--              <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+<!--              <span class="sr-only">Next</span>-->
+<!--            </a>-->
+<!--            &lt;!&ndash;/.Controls&ndash;&gt;-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        </footer>-->
     </body>
 </html>
