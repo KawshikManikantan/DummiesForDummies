@@ -54,7 +54,7 @@
 <div class="container-fluid">
     <!--        <div class="container-fluid">-->
     {% block slide %}
-    <embed class="slides" type="text/html" src="{{ url_for('static', filename='slides-kruskal.html') }}"> {% endblock slide %}
+    <embed class="slides" type="text/html" src="{{ url_for('static', filename='slides-bs.html') }}"> {% endblock slide %}
     <!--        </div>-->
     <div class="container-fluid">
         <div class="row my-3 mx-3">
@@ -65,9 +65,9 @@
                         <h4 class="card-title">Useful Resources</h4>
                         <p class="card-text">These sites provide real good information regarding the above algorithm. Visit these:
                             <ul>
-                                <a href="https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/" target="_blank"><li>GeeksforGeeks</li></a>
-                                <a href="https://www.tutorialspoint.com/data_structures_algorithms/kruskals_spanning_tree_algorithm.htm" target="_blank"><li>Tutorialspoint</li></a>
-                                <a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm" target="_blank"><li>Wikipedia</li></a>
+                                <a href="https://www.geeksforgeeks.org/binary-search/" target="_blank"><li>GeeksforGeeks</li></a>
+                                <a href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm" target="_blank"><li>Tutorialspoint</li></a>
+                                <a href="https://en.wikipedia.org/wiki/Binary_search_algorithm" target="_blank"><li>Wikipedia</li></a>
                             </ul>
                         </p>
                     </div>
@@ -90,8 +90,8 @@
                         <h4 class="card-title">Video Resources:</h4>
                         <p class="card-text">Video Resources that enhance your visualisation and understanding of the concepts:
                             <ul>
-                                <a href="https://youtu.be/71UQH7Pr9kU" target="_blank"><li>Kruskal's Algorithm in 2 minutes</li></a>
-                                <a href="https://youtu.be/JZBQLXgSGfs" target="_blank"><li>Union Find Kruskal's Algorithm</li></a>
+                                <a href="https://youtu.be/T98PIp4omUA" target="_blank"><li>Binary Search</li></a>
+                                <a href="https://youtu.be/j5uXyPJ0Pew" target="_blank"><li>What is Binary Search?</li></a>
                             </ul>
                         </p>
                     </div>
@@ -103,7 +103,7 @@
                 <div class="ii card mx-2 my-2" style="width: 40rem; height:30rem;">
                     <!--                <img src="#" alt="img" class="card-image-top">-->
                     <div class="card-body flex-fill">
-                        <a href="{{ url_for('gamesTab', id=5) }}"><h4 class="card-title">Click to Game</h4></a>
+                        <a href="{{ url_for('gamesTab', id=1) }}"><h4 class="card-title">Click to Game</h4></a>
                         <img src="{{ url_for('static', filename='Game.png') }}" class="img-thumbnail" alt="Cinque Terre" width=100%>
                         <!--                    <p class="card-text">Breadth First Search (BFS) is used to traverse a graph or a tree data structure in which all the neighbours of a given node are explored.BFS actually forms a base to all the graph based algorithms. <br> <br> Play the game to learn in depth.</p>-->
                         <!--                    <a href="{{ url_for('gamesTab', id=3) }}" class="btn btn-primary">Play</a>-->
@@ -115,7 +115,7 @@
                 <div class="ii card mx-2 my-2" style="width: 40rem; height:30rem;">
                     <!--                <img src="#" alt="img" class="card-image-top">-->
                     <div class="card-body flex-fill">
-                        <a href="{{ url_for('algo', id=5) }}"><h4 class="card-title">Click to Code</h4></a>
+                        <a href="{{ url_for('algo', id=1) }}"><h4 class="card-title">Click to Code</h4></a>
                         <img src="{{ url_for('static', filename='Coding.png') }}" class=" cod img-thumbnail" alt="Cinque Terre">
                         <!--                    <a href="{{ url_for('gamesTab', id=5) }}" class="btn btn-primary">Play</a>-->
                     </div>

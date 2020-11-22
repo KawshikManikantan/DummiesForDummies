@@ -77,7 +77,7 @@ def contentTab(idd):
         # print("Eh?")
         return render_template("KRU_content.html")
     elif idd == "0":
-        return render_template("SOR_content.html")
+        return render_template("SEL_content.html")
     else:
         return render_template("games_layout.html")
 
