@@ -3,7 +3,8 @@ import os
 import subprocess
 
 app = Flask(__name__)
-filenames = ("SS_question.html", "BS_question.html", "BST_question.html", "BFS_question.html")
+filenames = ("SOR_question.html", "BS_question.html", "BST_question.html", 
+            "BFS_question.html", "DFS_question.html", "KRU_question.html")
 
 def testhelp():
     if id == "1":
@@ -21,6 +22,10 @@ def testhelp():
 
 
 @app.route('/')
+def frontPage():
+    return render_template("frontpage.html")
+
+
 @app.route('/home')
 def home():
     return render_template('index.html')
@@ -48,9 +53,9 @@ def gamesTab(id):
     elif id == "2":
         return render_template("BST_game.html")
     elif id == "3":
-        return render_template("BFS_game.html")
+        return render_template("BFS-DFS_game.html")
     elif id == "4":
-        return render_template("DFS_game.html")
+        return render_template("BFS-DFS_game.html")
     elif id == "5":
         return render_template("KRU_game.html")
     elif id == "0":
@@ -213,4 +218,4 @@ def test(id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

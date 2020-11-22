@@ -1,25 +1,26 @@
 {% extends "questions_layout.html" %}
 {% block question %}
     <h4>CoronaVirus</h4>
-    <p>Recently, a new virus broke out in k cities in a country at time t=0. Country can be viewed as a (n x m) grid((0, 0) at the top left and (n-1, m-1) at the bottom right). In every second, the virus spreads from the infected cities to its neighbours that is the cells directly connected to it(up, right, bottom,left). You have to print the time for every city when it got infected first.</p>
+    <p>Recently, a new virus broke out in k cities in a country at time t=0. Country can be viewed as a (n x m) grid((0, 0) at the top left and (n-1, m-1) at the bottom right). In every second, the virus spreads from the infected cities to its neighbours that is the cells directly connected to it(up, right, bottom,left). Let time[i][j] denote the time at which the city i,j got the infection. Find the value of (&sum;((i + 1) x (j + 1) x time[i][j])) modulo 1e9 + 7</p>
     <h4>Constraints</h4>
     <p>1&le;n,m&le;1000</p>
     <p>1&le;k;&le;n x m</p>
     <h4>Input</h4>
     <p>First Line contains n, m, k the number of rows, columns in the grid and the number cities which got infected at t=0. The next k lines contains 2 integers i,j denoting the cell infected</p>
     <h4>Output</h4>
-    <p>Print N lines, each line containing M space seperated integers indicating the first time at which i,j city got infected</p>
+    <p>Print an integer denoting the hash value</p>
     <h4>Sample Input</h4>
     <div style="background-color: #CCCCCC;">
         <pre>
  3 3 1
- 1 1</pre>
+ 1 1
+ 2 2 1
+ 0 0</pre>
     </div>
     <h4>Sample Output</h4>
     <div style="background-color: #CCCCCC;">
         <pre>
- 2 1 2
- 1 0 1
- 2 1 2</pre>
+ 48
+ 12</pre>
     </div>
 {% endblock question %}
