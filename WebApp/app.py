@@ -53,9 +53,9 @@ def gamesTab(id):
     elif id == "2":
         return render_template("BST_game.html")
     elif id == "3":
-        return render_template("BFS_game.html")
+        return render_template("BFS-DFS_game.html")
     elif id == "4":
-        return render_template("DFS_game.html")
+        return render_template("BFS-DFS_game.html")
     elif id == "5":
         return render_template("KRU_game.html")
     elif id == "0":
@@ -218,4 +218,4 @@ def test(id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
