@@ -3,7 +3,8 @@ import os
 import subprocess
 
 app = Flask(__name__)
-filenames = ("SS_question.html", "BS_question.html", "BST_question.html", "BFS_question.html")
+filenames = ("SOR_question.html", "BS_question.html", "BST_question.html", 
+            "BFS_question.html", "DFS_question.html", "KRU_question.html")
 
 def testhelp():
     if id == "1":
@@ -21,6 +22,10 @@ def testhelp():
 
 
 @app.route('/')
+def frontPage():
+    return render_template("frontpage.html")
+
+
 @app.route('/home')
 def home():
     return render_template('index.html')
