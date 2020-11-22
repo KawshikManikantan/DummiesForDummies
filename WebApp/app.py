@@ -84,8 +84,24 @@ def contentTab(idd):
 @app.route('/edi/<id>', methods=['GET', 'POST'])
 def algo(id):
     if request.method == 'POST':
-        return algo_init('code1.cpp', 'test_cases.txt', 'cor_output.txt',
-                         'out2', 2, int(id))
+        if id == "1":
+            return algo_init('BS.cpp', 'BS_testcases.txt', 'BS_output.txt',
+                         'BS', 2, int(id))
+        elif id == "2":
+            return algo_init('BST.cpp', 'BST_testcases.txt', 'BST_output.txt',
+                             'BST', 2, int(id))
+        elif id == "3":
+            return algo_init('BFS.cpp', 'BFS_testcases.txt', 'BFS_output.txt',
+                             'BFS', 2, int(id))
+        elif id == "4":
+            return algo_init('DFS.cpp', 'DFS_testcases.txt', 'DFS_output.txt',
+                             'DFS', 2, int(id))
+        elif id == "5":
+            return algo_init('KRU.cpp', 'KRU_testcases.txt', 'BS_output.txt',
+                             'BS', 2, int(id))
+        elif id == "0":
+            return algo_init('SOR.cpp', 'SOR_testcases.txt', 'SOR_output.txt',
+                             'SOR', 2, int(id))
     else:
         if id == "1":
             return render_template("BS_question.html")
