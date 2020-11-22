@@ -9,7 +9,6 @@ body
     margin: 0;
     font-family: 'Raleway', sans-serif;
     text-align: center;
-    overflow: hidden;
 }
 
 /*header css */
@@ -62,4 +61,8 @@ section a:focus
     padding-top: 36em;
     padding-bottom: 10em;
     color: #FFF;
+}
+
+.d-block{
+    height:88vh;
 }

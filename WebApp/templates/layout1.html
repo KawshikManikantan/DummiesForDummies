@@ -100,15 +100,17 @@ cursor:pointer;
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <p class="Welcome">List of Topics Available</p>
     <br>
-  <a href="#">Selection Sort</a>
+  <a href="{{ url_for('contentTab', idd=0) }}">Selection Sort</a>
     <br>
-  <a href="#">Binary Search Tree</a>
+  <a href="{{ url_for('contentTab', idd=1) }}">Binary Search</a>
     <br>
-  <a href="#">Depth First Search</a>
+  <a href="{{ url_for('contentTab', idd=2) }}">Binary Search Tree</a>
     <br>
-  <a href="#">Breadth First Search</a>
+  <a href="{{ url_for('contentTab', idd=3) }}">Depth First Search</a>
     <br>
-    <a href="#">Kruskal's MST Algorithm</a>
+  <a href="{{ url_for('contentTab', idd=4) }}">Breadth First Search</a>
+    <br>
+    <a href="{{ url_for('contentTab', idd=5) }}">Kruskal's MST Algorithm</a>
 </div>
 
 <script>
