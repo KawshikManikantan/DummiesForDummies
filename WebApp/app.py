@@ -126,13 +126,13 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
     output_display = []
     issuccess = 1
     user = request.form['code']
-    # user=[]
-    # for ll in users:
-    #     if(ll.st):
-    #         user.appen
+    userstring=""
+    for ll in user:
+        if ll != '/n':
+            userstring+=ll
     try:
         f = open(os.path.join(__location__, filetowritecode), "w")
-        f.write(user)
+        f.write(userstring)
         f.close()
 
         input_array = []
@@ -164,7 +164,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
             command="g++ " + filetowritecode + " -o " + filetoexecute
             print(command)
             s = subprocess.check_output(command,
-                cwd=__location__, timeout=1,
+                cwd=__location__, timeout=3,
                 stderr=subprocess.STDOUT)
         except Exception as e:
             print("Entered Here 1")
@@ -191,7 +191,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
             try:
                 s = subprocess.check_output(filetoexecute,
                                             cwd=__location__,
-                                            stdin=data, timeout=1,
+                                            stdin=data, timeout=10,
                                             stderr=subprocess.STDOUT)
             except subprocess.TimeoutExpired as e:
                 print("No Result obtained")
