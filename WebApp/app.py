@@ -28,7 +28,7 @@ def frontPage():
 
 @app.route('/home')
 def home():
-    return render_template('index.html')
+    return render_template('frontpage.html')
 
 
 @app.route('/games')
