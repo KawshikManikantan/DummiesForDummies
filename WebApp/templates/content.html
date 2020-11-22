@@ -5,6 +5,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@1&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
 <style>
     .container-fluid {
         padding: 0px;
@@ -148,8 +149,23 @@ background-color:#05386B;
     /*background-color:#A8D0E6*/
 }
 
-.my{
+body{
     background-color:#05386B;
+}
+
+.card-custom {
+        width:18rem;
+        height:20rem;
+    }
+
+.card-title{
+    font-family: 'Acme';
+    font-size: 29px;
+}
+
+.card-text{
+    font-family: 'Courgette', cursive;
+    font-size: 18px;
 }
 @media only screen and (min-width: 500px) {
    .test{
@@ -217,8 +233,47 @@ background-color:#05386B;
     </div>
 <!--    </div>-->
 </div>
+<div class="meet container-fluid">
+    <div class="row mt-2 mx-auto">
+        <div class="card card-custom text-center mx-2 mb-3 ml-5">
+            <img class="card-img mx-auto" src="{{ url_for('static', filename='Balaji.png') }}" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">Balaji Venkateshwarar</h4>
+                <br>
+              <p class="card-text">Pursuing CSD at IIIT Hyderabad</p>
+            </div>
+        </div>
+        <div class="card card-custom text-center mx-5 mb-3">
+            <img class="card-img mx-auto" src="{{ url_for('static', filename='Kaushik.png') }}" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">Kawshik Manikantan</h4>
+                <br>
+                <p class="card-text">Pursuing CSD at IIIT Hyderabad</p>
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+            </div>
+        </div>
+        <div class="card card-custom text-center mx-5 mb-3">
+            <img class="card-img mx-auto" src="{{ url_for('static', filename='Nikit.png') }}" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">Nikit Uppala</h4>
+                <br>
+                <p class="card-text">Pursuing CSE at IIIT Hyderabad</p>
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+            </div>
+        </div>
+        <div class="card card-custom text-center mx-5 mb-3">
+            <img class="card-img mx-auto" src="{{ url_for('static', filename='Akarsh.png') }}" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">Sai Akarsh</h4>
+                <br>
+                <p class="card-text">Pursuing CSD at IIIT Hyderabad</p>
+<!--              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+            </div>
+        </div>
+    </div>
+</div>
 <!--<div class="my container-fluid">-->
-<!--&lt;!&ndash;<div class="row mb-5">&ndash;&gt;-->
+<!--<div class="row mb-5">-->
 <!--    <div class="row my-3 mx-3">-->
 <!--        <div class="col-md d-flex">-->
 <!--&lt;!&ndash;<div class="card-deck ml-2 mr-2">&ndash;&gt;-->
