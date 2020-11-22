@@ -59,7 +59,7 @@ def gamesTab(id):
     elif id == "5":
         return render_template("KRU_game.html")
     elif id == "0":
-        return render_template("SOR_game.html")
+        return render_template("SEL_game.html")
     else:
         return render_template("games_layout.html")
 
