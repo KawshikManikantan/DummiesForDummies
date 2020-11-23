@@ -191,7 +191,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
             try:
                 s = subprocess.check_output(filetoexecute,
                                             cwd=__location__,
-                                            stdin=data, timeout=10,
+                                            stdin=data, timeout=20,
                                             stderr=subprocess.STDOUT)
             except subprocess.TimeoutExpired as e:
                 print("No Result obtained")

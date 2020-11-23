@@ -1,4 +1,4 @@
-            #include<iostream>
+#include<iostream>
 #include<vector>
 #include<algorithm>
 #include<queue>
@@ -137,5 +137,5 @@ int main()
     }
     totalcost+=secondcost;
     cout<<totalcost<<endl;
-}
+}            
         
