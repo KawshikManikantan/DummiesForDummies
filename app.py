@@ -3,7 +3,7 @@ import os
 import subprocess
 
 app = Flask(__name__, template_folder="./WebApp/templates",static_folder="./WebApp/static")
-filenames = ("SOR_question.html", "BS_question.html", "BST_question.html", 
+filenames = ("SOR_question.html", "BS_question.html", "BST_question.html",
             "BFS_question.html", "DFS_question.html", "KRU_question.html")
 
 def testhelp():
@@ -85,22 +85,22 @@ def contentTab(idd):
 def algo(id):
     if request.method == 'POST':
         if id == "1":
-            return algo_init('code1.cpp', 'BS_testcases.txt', 'BS_output.txt',
+            return algo_init('code1.cpp', '\WebApp\BS_testcases.txt', '\WebApp\BS_output.txt',
                          'out2', 2, int(id))
         elif id == "2":
-            return algo_init('code1.cpp', 'BST_testcases.txt', 'BST_output.txt',
+            return algo_init('code1.cpp', '\WebApp\BST_testcases.txt', '\WebApp\BST_output.txt',
                              'out2', 2, int(id))
         elif id == "3":
-            return algo_init('code1.cpp', 'BFS_testcases.txt', 'BFS_output.txt',
+            return algo_init('code1.cpp', '\WebApp\BFS_testcases.txt', '\WebApp\BFS_output.txt',
                              'out2', 2, int(id))
         elif id == "4":
-            return algo_init('code1.cpp', 'DFS_testcases.txt', 'DFS_output.txt',
+            return algo_init('code1.cpp', '\WebApp\DFS_testcases.txt', '\WebApp\DFS_output.txt',
                              'out2', 2, int(id))
         elif id == "5":
-            return algo_init('code1.cpp', 'KRU_testcases.txt', 'KRU_output.txt',
+            return algo_init('code1.cpp', '\WebApp\KRU_testcases.txt', '\WebApp\KRU_output.txt',
                              'out2', 2, int(id))
         elif id == "0":
-            return algo_init('code1.cpp', 'SOR_testcases.txt', 'SOR_output.txt',
+            return algo_init('code1.cpp', '\WebApp\SOR_testcases.txt', '\WebApp\SOR_output.txt',
                              'out2', 2, int(id))
     else:
         if id == "1":
@@ -123,6 +123,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
               num_input, id):
     __location__ = os.path.realpath(
         os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    print(__location__)
     output_display = []
     issuccess = 1
     user = request.form['code']
@@ -136,13 +137,15 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
         f.close()
 
         input_array = []
-        with open(os.path.join(__location__, filetestcases), "r") as f:
+        print(__location__+filetestcases)
+        print(__location__+filetooutput)
+        with open(__location__+filetestcases, "r") as f:
             for line in f:
                 input_array.append(line)
         f.close()
 
         correct_sol = []
-        with open(os.path.join(__location__, filetooutput), "r") as f:
+        with open(__location__+filetooutput, "r") as f:
             for line in f:
                 correct_sol.append(line.strip())
         f.close()
@@ -235,4 +238,5 @@ def test(id):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
