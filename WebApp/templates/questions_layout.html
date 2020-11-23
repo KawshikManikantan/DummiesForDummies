@@ -125,6 +125,15 @@ body{
 <div class="container">
       {% block question %}
       {% endblock question %}
+    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-height:300px;">
+        {% for result in output%}
+            {% if result=="Congrats All testcases passed" %}
+                <p class="alert alert-success" role="alert">{{result}}</p>
+            {% elif result!="" %}
+            <p class="alert alert-danger" role="alert">{{result}}</p>
+            {% endif %}
+        {% endfor %}
+    </div>
     <div class="row no-gutters">
     <a class="bt1 btn btn-primary col-xl-4" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1" id="hi1">Hint 1</a>
         <button class="bt2 btn btn-primary col-xl-4" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2" id="hi2">Hint 2</button>
@@ -155,15 +164,6 @@ body{
         </textarea>
         <input type="submit" value="Submit" class="btn btn-block btn-info" />
     </form>
-    <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3 bg-light" style="max-height:300px;">
-        {% for result in output%}
-            {% if result=="Congrats All testcases passed" %}
-                <p class="alert alert-success" role="alert">{{result}}</p>
-            {% elif result!="" %}
-            <p class="alert alert-danger" role="alert">{{result}}</p>
-            {% endif %}
-        {% endfor %}
-    </div>
 </div>
     <script>
         var codemirrorEditor = CodeMirror.fromTextArea(document.getElementById("codearea"), {

@@ -129,7 +129,7 @@ def algo_init(filetowritecode, filetestcases, filetooutput, filetoexecute,
     user = request.form['code']
     userstring=""
     for ll in user:
-        if ll != '/n':
+        if ll != "\n":
             userstring+=ll
     try:
         f = open(os.path.join(__location__, filetowritecode), "w")
