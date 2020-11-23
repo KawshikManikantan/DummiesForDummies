@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect
 import os
 import subprocess
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="./WebApp/templates")
 filenames = ("SOR_question.html", "BS_question.html", "BST_question.html", 
             "BFS_question.html", "DFS_question.html", "KRU_question.html")
 
